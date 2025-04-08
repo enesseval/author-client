@@ -30,6 +30,7 @@ export const UserProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
          const startTime = Date.now();
          try {
             const response = await authApi.checkUser();
+            console.log(response);
             if (response.success && response.data) {
                setUser(response.data);
             }
