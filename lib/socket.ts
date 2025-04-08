@@ -4,7 +4,7 @@ import { io } from "socket.io-client";
 // .env dosyasındaki NEXT_PUBLIC_API_BASE_URL'den '/api' kısmını çıkararak kullanabiliriz.
 // VEYA doğrudan backend adresini yazabiliriz: 'http://192.168.1.103:3001'
 // Emin olmak için server/src/server.ts dosyasındaki portu kontrol edin (3001).
-const SOCKET_URL = process.env.NEXT_PUBLIC_API_BASE_URL ? process.env.NEXT_PUBLIC_API_BASE_URL.replace("/api", "") : "http://localhost:3001"; // Fallback adresi
+const SOCKET_URL = process.env.NEXT_PUBLIC_API_BASE_URL ? process.env.NEXT_PUBLIC_API_BASE_URL.replace("/api", "") : "https://author-server.onrender.com"; // Fallback adresi
 
 export const socket = io(SOCKET_URL, {
    withCredentials: true, // Cookie'lerin gönderilmesi için
