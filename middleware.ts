@@ -6,11 +6,11 @@ export const middleware = async (req: NextRequest) => {
    const isAdminRoute = req.nextUrl.pathname.startsWith("/admin");
 
    if (isAdminRoute) {
-      return NextResponse.redirect(new URL("/adminroute", req.url));
-   }
-
-   if (!token) {
-      return NextResponse.redirect(new URL("/tekonyok", req.url));
+      if (!token) {
+         return NextResponse.redirect(new URL("/tekonyok", req.url));
+      } else {
+         return NextResponse.redirect(new URL("/adminroute", req.url));
+      }
    }
 
    return NextResponse.next();
