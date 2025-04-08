@@ -2,7 +2,11 @@ import { NextRequest, NextResponse } from "next/server";
 
 export const middleware = async (req: NextRequest) => {
    console.log("Middleware triggered for:", req.nextUrl.pathname); // Hangi path için tetiklendiğini logla
-   console.log("All cookies received:", req.cookies.getAll()); // Gelen tüm cookieleri logla
+
+   // Gelen tüm başlıkları logla (req.headers kullan)
+   console.log("All request headers:", Object.fromEntries(req.headers.entries()));
+
+   console.log("All cookies received via req.cookies:", req.cookies.getAll()); // Gelen tüm cookieleri logla
 
    const tokenCookie = req.cookies.get("accessToken");
    console.log("accessToken Cookie Object:", tokenCookie); // accessToken cookie nesnesini logla
