@@ -3,6 +3,8 @@ import { NextRequest, NextResponse } from "next/server";
 export const middleware = async (req: NextRequest) => {
    const token = req.cookies.get("accessToken");
 
+   console.log(token);
+
    const isAdminRoute = req.nextUrl.pathname.startsWith("/admin");
 
    if (isAdminRoute && !token) {
