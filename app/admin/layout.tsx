@@ -15,6 +15,8 @@ function AdminLayoutContent({ children }: { children: ReactNode }) {
    const { user, isLoading } = useUser(); // UserContext'ten kullanıcı ve yüklenme durumu
    const router = useRouter();
 
+   console.log(user);
+
    useEffect(() => {
       // Yükleme tamamlanmadıysa veya kullanıcı yoksa işlem yapma
       if (isLoading || !user) {
