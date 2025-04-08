@@ -55,6 +55,47 @@ const iconList = [
    { icon: Bookmark, name: "bookmark" },
 ];
 
+// Removed hardcoded books array
+
+const comments = [
+   {
+      comment: "Gölgeler Şehri, İstanbul'u bambaşka bir gözle görmemi sağladı. Karakterler o kadar gerçekçi ki, kitabı bitirdiğimde onları gerçek hayatta tanıyormuşum gibi hissettim.",
+      image: "/profile.png",
+      name: "Ayşe K.",
+      city: "İstanbul",
+      stars: 5,
+   },
+   {
+      comment: "Zamanın İzinde, tarihimizi anlamak için muhteşem bir yolculuk. Ahmet Bey'in detaylara verdiği önem ve akıcı anlatımı sayesinde kitabı elimden bırakamadım.",
+      image: "/profile.png",
+      name: "Mehmet Y.",
+      city: "Ankara",
+      stars: 4,
+   },
+   {
+      comment: "Sessiz Çığlık, beni derinden etkiledi. Toplumsal sorunları bu kadar etkileyici bir dille anlatan çok az yazar var. Ahmet Yılmaz kesinlikle favorilerim arasında.",
+      image: "/profile.png",
+      name: "Zeynep T.",
+      city: "İzmir",
+      stars: 3,
+   },
+];
+
+const comingSoon = [
+   {
+      image: "https://images.unsplash.com/photo-1532012197267-da84d127e765?q=80&w=1000&auto=format&fit=crop",
+      title: "Yeni Roman: 'Kayıp Zamanlar'",
+      desc: "Pandemi döneminde kaybolan zamanları ve değişen insan ilişkilerini konu alan yeni romanım Eylül 2023'te raflarda olacak",
+      date: "Çıkış: Eylül 2023",
+   },
+   {
+      image: "https://images.unsplash.com/photo-1589903308904-1010c2294adc?q=80&w=1000&auto=format&fit=crop",
+      title: 'Podcast Serisi: "Yazarın Dünyası"',
+      desc: "Yazarlık serüvenim, ilham kaynaklarım ve yazma teknikleri hakkında konuşacağım podcast serisi yakında yayında.",
+      date: "Başlangıç: Ağustos 2023",
+   },
+];
+
 export default function Home() {
    const { author, isLoading: isLoadingAuthor } = useAuthor(); // Renamed isLoading to avoid conflict
    const [latestBooks, setLatestBooks] = useState<BookType[]>([]);
@@ -83,7 +124,7 @@ export default function Home() {
       fetchLatestBooks();
    }, []);
 
-   if (isLoadingAuthor) return <div>Yükleniyor...</div>;
+   if (isLoadingAuthor) return <Loading />;
 
    return (
       <main className="flex-1">
