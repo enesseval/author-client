@@ -1,6 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
+import { cookies } from "next/headers";
 
 export const middleware = async (req: NextRequest) => {
+   const cookie = (await cookies()).get("accessToken");
+   console.log("cookie", cookie);
    console.log("Middleware triggered for:", req.nextUrl.pathname); // Hangi path için tetiklendiğini logla
 
    // Gelen tüm başlıkları logla (req.headers kullan)
@@ -16,7 +19,7 @@ export const middleware = async (req: NextRequest) => {
    // Nesnenin .value özelliğini kullanarak token değerini al (güvenli erişim için ?.)
    const tokenValue = tokenCookie?.value;
    console.log("accessToken Value:", tokenValue); // accessToken değerini logla
-
+   55;
    const isAdminRoute = req.nextUrl.pathname.startsWith("/admin");
 
    if (isAdminRoute) {
