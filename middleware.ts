@@ -8,6 +8,8 @@ export const middleware = async (req: NextRequest) => {
 
    console.log("All cookies received via req.cookies:", req.cookies.getAll()); // Gelen tüm cookieleri logla
 
+   console.log("req", req);
+
    const tokenCookie = req.cookies.get("accessToken");
    console.log("accessToken Cookie Object:", tokenCookie); // accessToken cookie nesnesini logla
 
